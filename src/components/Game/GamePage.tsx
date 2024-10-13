@@ -83,6 +83,7 @@ const GamePage:React.FC = () => {
     const downloadNow = (game:DataEntry):void => {
         dispatch(addData(game))
         setShowPop(true)
+        window.scrollTo({top:0,behavior:'smooth'})
     }
 
     if(data==null){
