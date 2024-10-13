@@ -116,7 +116,7 @@ const GamePage:React.FC = () => {
           
             {data.map((para,index)=>{
             return<React.Fragment key={index}>    
-                <div className={`relative grid grid-cols-1 lg:grid-cols-3 w-[85%] sm:w-[75%] mx-auto my-4 sm:bg-cover sm:bg-center sm:bg-no-repeat bg-black/40 z-50 py-2 md:py-4 lg:min-h-[26rem] lg:max-h-[30rem]`}>
+                <div className={`relative grid grid-cols-1 lg:grid-cols-3 w-[85%] sm:w-[75%] mx-auto my-4 sm:bg-cover sm:bg-center sm:bg-no-repeat bg-black/40 z-50 pb-2 md:py-4 lg:min-h-[26rem] lg:max-h-[30rem]`}>
                     <div className='sm:col-span-1 sm:row-span-1 relative z-10 flex justify-center items-center'>
                     {hideImage&&<div className='w-[100%] bg-slate-800 aspect-[2/3] animate-pulse'></div>}
                         <img src={para.imgUrl} alt={para.name}  className={`sm:w-[70%] mx-auto z-10 object-cover transition-opacity duration-300 ${!hideImage ? 'opacity-100 block' : 'opacity-0 hidden'}`} onLoad={handleImages} />
