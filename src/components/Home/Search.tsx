@@ -19,13 +19,11 @@ export const SearchBar:React.FC = () => {
         setQuery(e.target.value)
     }
 
-    const handleKeyDown = (event:React.KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === 'Enter') {
+    const handleKeyDown = (event:React.FormEvent<HTMLInputElement|HTMLFormElement>) => {
           event.preventDefault()
           setSearchParams({q:query})
           navigate(`/games/search?q=${query}`)    
           setQuery('')
-        }
       };
 
     useEffect(()=>{
@@ -52,10 +50,10 @@ export const SearchBar:React.FC = () => {
     return(
     <>
         <section className='w-[80%] ml-auto mr-auto flex items-center justify-center py-4'>
-            <div className='w-[95%] sm:w-[90%] lg:w-[70%] h-[32px] sm:h-[38px] flex justify-center items-center bg-[#18181c] rounded'>
+            <form className='w-[95%] sm:w-[90%] lg:w-[70%] h-[32px] sm:h-[38px] flex justify-center items-center bg-[#18181c] rounded py-1' onSubmit={handleKeyDown}>
                 <HiMiniMagnifyingGlass className='text-[#fff]' />
-                <input type="text" name="search-bar" placeholder='Search Anything....' value={query} onChange={searchHandler} className='w-[90%] sm:h-[100%] px-2 rounded-sm bg-[#18181c] text-[#fff] my-4 focus-within:outline-none focus-visible:outline-none focus-visible:bg-[#18181c] autofill:bg-[#18181c]' autoComplete='off' onKeyDown={handleKeyDown} />
-            </div>
+                <input type="text" name="search-bar" placeholder='Search Anything....' value={query} onChange={searchHandler} className='w-[90%] sm:h-[100%] px-2 rounded-sm bg-[#18181c] text-[#fff] py-1 my-4 focus-within:outline-none focus-visible:outline-none focus-visible:bg-[#18181c] autofill:bg-[#18181c]' autoComplete='off' />
+            </form>
             <div className='hidden sm:hidden  lg:flex w-[30%] gap-10 px-4 items-center justify-center'>
                 <p className='text-slate-50 font-roboto'>
                 <Link to="/New-Releases">Discover</Link></p>
