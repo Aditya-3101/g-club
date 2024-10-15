@@ -22,7 +22,8 @@ export const Carousel:React.FC = () => {
     const [data,setData]=useState<ResponseType>([])
     const [currentPoster,setCurrentPoster]=useState(1)
     const posterRef = useRef<HTMLDivElement|null>(null);
-    const fetchStatus = useRef(false)
+    const fetchStatus = useRef<boolean>(false)
+
 
     const divItems:JSX.Element[] = [];
 
@@ -70,12 +71,12 @@ export const Carousel:React.FC = () => {
 
 
     return<div className='w-[80%] sm:w-[70%] mx-auto'>
-        <div ref={posterRef} className='poster-container grid grid-flow-col auto-cols-[90%] sm:auto-cols-[95%] overflow-x-auto overscroll-x-contain snap-mandatory snap-x sm:gap-8 gap-4 no-scrollbar justify-center'>
+        <div ref={posterRef} className={`poster-container grid grid-flow-col auto-cols-[90%] sm:auto-cols-[95%] overflow-x-auto overscroll-x-contain snap-mandatory snap-x sm:gap-8 gap-4 no-scrollbar ${data.length==0?'justify-center':'justify-normal'}`}>
         {data && data.map((par,index)=>{
             return <Link to={`/games/${par.name}`} key={index}><Poster name={par.name} thumbPc={par.thumbPc} thumbMobile={par.thumbMobile} description={par.description}/>
             </Link>
         })}
-        {data.length===0&&<Blank dir="horizontal"/>}
+        {data.length===0&&<Blank about="carousel"/>}
     </div>
     <div className='w-[100%] flex my-8 justify-center gap-4'>
         {divItems}

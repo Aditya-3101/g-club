@@ -3,6 +3,7 @@ import { MdChevronRight } from 'react-icons/md';
 import { ReleaseCard } from './ReleaseCard.tsx';
 import { Link } from 'react-router-dom';
 import { Blank } from '../Navigation/Blank.tsx';
+import { useDeviceType } from '../layout/useDeviceType.tsx';
 
 type ResponseType = {
     
@@ -22,6 +23,8 @@ export const TopSellers:React.FC = () => {
 
     const [data,setData] = useState<ResponseType>([])
     const setType = ['set 1','set 2','set 3','set 4']
+
+    const isMobile = useDeviceType()
 
 
     useEffect(()=>{
@@ -54,10 +57,11 @@ export const TopSellers:React.FC = () => {
                     <ReleaseCard imgUrl={par.imgUrl} name={par.name} orgPrice={par.orgPrice} price={par.price} />
                 </Link>
             })}
-            {data.length===0&&
-            setType.map((type,index)=>{
-                return<Blank key={index} type="pc-release"/>
-            })}
+                {(data.length===0&&isMobile===false)&&
+                setType.map((type,index)=>{
+                    return<Blank key={index} type="pc-release"/>
+                })}
+                {isMobile&&<Blank type="pc-release"/>}
         </div>
     </section>
 </div>
