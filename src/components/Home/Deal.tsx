@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import { Blank } from '../Navigation/Blank.tsx';
 
 type responseType = {
     _id:string,
@@ -49,6 +50,7 @@ export const Deal:React.FC = () =>{
                     </div>
                 </div>
             })}
+            {data.length===0&&<Blank dir='horizontal' type="pc-deal"/>}
         </section>
     </div>
 }

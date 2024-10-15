@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { ReleaseCard } from './ReleaseCard.tsx';
 import { MdChevronRight } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { Blank } from '../Navigation/Blank.tsx';
 
 type ResponseType = {
     
@@ -20,6 +21,7 @@ type ResponseType = {
 export const NewRelease:React.FC = () => {
 
     const [data,setData] = useState<ResponseType>([]);
+    const setType = ['set 1','set 2','set 3','set 4']
 
     useEffect(()=>{
         fetchNewReleases()
@@ -46,10 +48,14 @@ export const NewRelease:React.FC = () => {
         <section className='w-[80%] mx-auto'>
             <Link to="/New-Releases"><p className='w-[100%] font-roboto text-white flex items-center text-2xl sm:text-3xl md:text-3xl text-left'>Top New Releases<MdChevronRight/></p>
             </Link>
-            <div className=' my-2 sm:my-4 w-[100%] mx-auto grid grid-flow-col auto-cols-[85%] sm:flex sm:flex-wrap sm:justify-between overflow-x-auto no-scrollbar'>
+            <div className={`my-2 sm:my-4 w-[100%] mx-auto grid grid-flow-col auto-cols-[85%] sm:flex sm:flex-wrap sm:justify-between overflow-x-auto no-scrollbar ${data.length===0&&'justify-center'}`}>
                 {data&&data.map((par,index)=>{
                     return <Link to={`/games/${par.name}`} key={index} className='w-[90%] sm:w-[22%]'>
                     <ReleaseCard key={index} imgUrl={par.imgUrl} name={par.name} orgPrice={par.orgPrice} price={par.price} /></Link>
+                })}
+                {data.length===0&&
+                setType.map((type,index)=>{
+                    return<Blank key={index} type="pc-release"/>
                 })}
             </div>
         </section>

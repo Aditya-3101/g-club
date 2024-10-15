@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 import { ReleaseCard } from './ReleaseCard.tsx';
 import { MdChevronRight } from 'react-icons/md';
+import { Blank } from '../Navigation/Blank.tsx';
 
 type responseType = {
     _id:string,
@@ -18,6 +19,7 @@ type responseType = {
 
 export const Onsale = () =>{
     const [data,setData] = useState<responseType>([])
+    const setCount:string[] = ['a','b','c','d']
 
     useEffect(()=>{
         fetchDeal()
@@ -34,9 +36,9 @@ export const Onsale = () =>{
             }
         }
         const res:responseType = await req.json()
-        setData(res)
-        
+        setData(res) 
     }
+
 
     return<div className='w-[90%] sm:w-[80%] mx-auto mt-8 relative pb-4'>
         <p className='w-[100%] font-roboto text-white flex items-center text-2xl sm:text-3xl md:text-3xl text-left relative'><Link to="/games" className='flex items-center'>Try Now<MdChevronRight/>
@@ -47,6 +49,10 @@ export const Onsale = () =>{
         data.map((par,index)=>{
             return<Link to={`/games/${par.name}`} key={index}>
             <ReleaseCard key={index} name={par.name} imgUrl={par.imgUrl} price={par.price} orgPrice={par.orgPrice} type="sale" /></Link>
+        })}
+        {data.length===0&&
+            setCount.map((type,index)=>{
+            return<Blank key={index}/>
         })}
         </section>
 

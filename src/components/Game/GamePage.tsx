@@ -54,7 +54,7 @@ const GamePage:React.FC = () => {
             setLoading(true)
             fetchInfo(searchQuery)
         }
-        window.scrollTo(0,0)
+        window.scrollTo({top:0,behavior:'smooth'})
     },[])
 
 

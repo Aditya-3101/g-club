@@ -2,6 +2,7 @@ import React,{useEffect, useState,useRef,useLayoutEffect} from 'react';
 import { useLoaderData,useLocation,useParams } from 'react-router';
 import { ReleaseCard } from '../Home/ReleaseCard.tsx';
 import { Link} from 'react-router-dom';
+import { Blank } from '../Navigation/Blank.tsx';
 
 type urlType={
     "games":string,
@@ -142,14 +143,15 @@ export const MainPage:React.FC = () => {
 
     return(
         <section className='bg-[#101014] flex flex-col  items-center py-4'>
-            <div className='w-[80%] sm:w-[80%] mx-auto sm:py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center sm:gap-4 gap-8'>
+            <div className='w-[80%] sm:w-[80%] mx-auto sm:py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center sm:gap-4 md:gap-y-8 gap-8'>
             {(data||[]).concat(moreData||[]).map((para,index)=>{
-                  return <Link to={`/games/${para.name}`} key={index}>
+                  return <Link to={`/games/${para.name}`} key={index} className='w-[16rem] md:w-[18rem]'>
                   <ReleaseCard name={para.name} price={para.price} orgPrice={para.orgPrice} imgUrl={para.imgUrl} type="gamesPage" />
                  </Link>   
             })}
             </div>
         {limit===false&&<div className='text-slate-50 text-lg sm:text-xl bg-[#ffffff26] rounded-md py-2 sm:py-2 px-4 font-roboto my-4' onClick={handleMore}>Load More</div>}
+        {data.length===0&&<Blank/>}
         </section>
         
     )

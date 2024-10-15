@@ -1,6 +1,7 @@
 import React,{useState,useEffect, useRef} from 'react';
 import { Poster } from './Poster.tsx';
 import { Link } from 'react-router-dom';
+import { Blank } from '../Navigation/Blank.tsx';
 
 type ResponseType = {
     
@@ -69,11 +70,12 @@ export const Carousel:React.FC = () => {
 
 
     return<div className='w-[80%] sm:w-[70%] mx-auto'>
-        <div ref={posterRef} className='poster-container grid grid-flow-col auto-cols-[90%] sm:auto-cols-[95%] overflow-x-auto overscroll-x-contain snap-mandatory snap-x sm:gap-8 gap-4 no-scrollbar'>
+        <div ref={posterRef} className='poster-container grid grid-flow-col auto-cols-[90%] sm:auto-cols-[95%] overflow-x-auto overscroll-x-contain snap-mandatory snap-x sm:gap-8 gap-4 no-scrollbar justify-center'>
         {data && data.map((par,index)=>{
             return <Link to={`/games/${par.name}`} key={index}><Poster name={par.name} thumbPc={par.thumbPc} thumbMobile={par.thumbMobile} description={par.description}/>
             </Link>
         })}
+        {data.length===0&&<Blank dir="horizontal"/>}
     </div>
     <div className='w-[100%] flex my-8 justify-center gap-4'>
         {divItems}
