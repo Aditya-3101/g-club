@@ -15,7 +15,7 @@ export function Navbar(){
   }
 
   return (
-    <header className='bg-[#121216f6] w-full p-4 sm:flex justify-between'>
+    <header className='bg-[#18181c] w-full p-4 sm:flex justify-between'>
       <h1 className='w-full sm:w-1/4 flex items-center justify-between'>
         <Link to="/" className='text-[#fff] text-left font-sans text-xl sm:text-2xl md:text-3xl flex items-center gap-2'>
           <img src="https://i.postimg.cc/cL6sq03P/image.png" className='w-[2rem] object-contain'/>
