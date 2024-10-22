@@ -45,9 +45,9 @@ export const Deal:React.FC = () =>{
     return<div className='w-[100%] flex items-center justify-center mt-8 pb-8'>
         <section className='w-4/5'>
             {data&&data.map((par,index)=>{
-                return<div key={index} className='w-[100%] flex flex-col sm:flex-row sm:justify-between'>
+                return<div key={index} className={`w-[100%] flex flex-col ${handleImage&&'gap-6 md:gap-10'} sm:flex-row sm:justify-between`}>
                     <img src={par.thumbPc} alt={par.name} className={`w-[100%] sm:w-[47%] object-cover rounded-xl ${!handleImage?'block':'hidden'}`} onLoad={handleLoadingImages} />
-                    {handleImage&&<div className='w-[100%] mx-auto bg-slate-800 aspect-[3/2] animate-pulse'></div>}
+                    {handleImage&&<div className='w-[90%] mx-auto bg-slate-800 aspect-[3/2] animate-pulse'></div>}
                     <div className='w-[100%] sm:w-[50%]'>
                     <p className='text-white font-poppins text-left text-xl sm:text-3xl mb-2'>{par.name}</p>
                     <p className='text-left text-[#ffffffa6] line-clamp-2 sm:line-clamp-4 font-poppins'>{par.description}</p>

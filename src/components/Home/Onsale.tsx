@@ -21,6 +21,8 @@ export const Onsale = () =>{
     const [data,setData] = useState<responseType>([])
     const setCount:string[] = ['a','b','c','d']
 
+
+
     useEffect(()=>{
         fetchDeal()
     },[])
