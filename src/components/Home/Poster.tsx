@@ -15,8 +15,6 @@ export const Poster = ({name,thumbMobile,thumbPc,description}:propsType) => {
         setHideImage(false)
     }
 
-    console.log(name)
-
     const showImages = () => {
         return <>
         <picture>
