@@ -28,7 +28,7 @@ export const Downloads:React.FC = () => {
                         currency:"INR",
                         minimumFractionDigits:0
                     })}/-</p>                    
-                    <button className='bg-sky-400 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] text-black px-4 py-1 my-1 rounded'>Proceed to Payment</button></div>
+                    <button className='bg-sky-400 w-[90%] sm:w-[70%] md:w-[60%] xl:w-[50%] text-black px-4 py-1 my-1 rounded'>Proceed to Payment</button></div>
                 </div>
                 </div>
         })}</div>}
