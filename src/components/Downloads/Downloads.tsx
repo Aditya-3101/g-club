@@ -20,8 +20,8 @@ export const Downloads:React.FC = () => {
             return<div key={index} className='w-[94%] sm:w-[75%] md:w-[65%] lg:w-[55%] min-h-20 max-h-42 mx-auto flex gap-4 px-4 md:px-6 sm:gap-8 py-8 bg-[#18181c]'>
                 <img src={par.imgUrl} alt={par.name} className='w-[30%] md:w-[15%] object-contain my-0 mx-4' />
                 <div className='w-[65%] md:w-[80%] text-slate-50 font-poppins text-left'>
-                    <p className='text-lg sm:text-2xl mb-1 relative'>{par.name}
-                    <span className='absolute right-0 bottom-0 cursor-pointer' onClick={()=>dispatch(removeData(par._id))}><AiOutlineDelete/></span></p>
+                    <p className='text-lg sm:text-2xl mb-1 relative flex items-center overflow-hidden'>{par.name}
+                    <span className='relative ml-auto cursor-pointer' onClick={()=>dispatch(removeData(par._id))}><AiOutlineDelete/></span></p>
                     <div className='flex gap-4 flex-col sm:flex-row justify-center sm:justify-start my-4'>
                     <p className='text-slate-200 text-xl font-poppins py-1 sm:py-2'>{Number(par.price).toLocaleString('en-IN',{
                         style:'currency',
