@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export const Footer:React.FC = () => {
     return(
         <React.Fragment>
-        <div className='bg-[#121216f6] w-full h-auto py-8 flex flex-col items-center sm:items-stretch justify-center sm:flex-row gap-2 sm:gap-6'>
+        <div className='bg-[#18181c] w-full h-auto py-8 flex flex-col items-center sm:items-stretch justify-center sm:flex-row gap-2 sm:gap-6'>
             <div className='w-4/5 sm:w-[28%] lg:w-[24%] flex flex-col gap-2'>
                 <p className='font-poppins text-left text-white text-2xl'>G-store</p>
                 <div className='text-[#ffffffa6] text-left font-roboto'>
