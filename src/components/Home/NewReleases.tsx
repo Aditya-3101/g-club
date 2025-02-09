@@ -60,7 +60,7 @@ export const NewRelease:React.FC = () => {
                 setType.map((type,index)=>{
                     return<Blank key={index} type="pc-release"/>
                 })}
-                {isMobile&&<Blank type="pc-release"/>}
+                {isMobile&&data.length!==0&&<Blank type="pc-release"/>}
             </div>
         </section>
     </div>
