@@ -150,7 +150,7 @@ export const MainPage:React.FC = () => {
                  </Link>   
             })}
             </div>
-        {limit===false&&<div className='text-slate-50 text-lg sm:text-xl bg-[#ffffff26] rounded-md py-2 sm:py-2 px-4 font-roboto my-4' onClick={handleMore}>Load More</div>}
+        {limit===false&&<div className='text-slate-50 text-lg sm:text-xl bg-[#ffffff26] rounded-md py-2 sm:py-2 px-4 font-roboto my-4 cursor-pointer' onClick={handleMore}>Load More</div>}
         {data.length===0&&<Blank/>}
         </section>
         

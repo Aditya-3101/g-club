@@ -50,7 +50,7 @@ export const SearchBar:React.FC = () => {
     return(
     <>
         <section className='w-[80%] ml-auto mr-auto flex items-center justify-center py-4'>
-            <form className='w-[95%] sm:w-[90%] lg:w-[70%] h-[32px] sm:h-[38px] flex justify-center items-center bg-[#18181c] rounded py-1' onSubmit={handleKeyDown}>
+            <form className='w-[95%] sm:w-[90%] lg:w-[70%] h-[42px] sm:h-[38px] flex justify-center items-center bg-[#18181c] rounded py-1' onSubmit={handleKeyDown}>
                 <HiMiniMagnifyingGlass className='text-[#fff]' />
                 <input type="text" name="search-bar" placeholder='Search Anything....' value={query} onChange={searchHandler} className='w-[90%] sm:h-[100%] px-2 rounded-sm bg-[#18181c] text-[#fff] py-1 my-4 focus-within:outline-none focus-visible:outline-none focus-visible:bg-[#18181c] autofill:bg-[#18181c]' autoComplete='off' />
             </form>
