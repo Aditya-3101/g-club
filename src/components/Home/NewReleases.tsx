@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import { Blank } from '../Navigation/Blank.tsx';
 import {useDeviceType} from '../layout/useDeviceType.tsx'
 
-type ResponseType = {
-    
+type ResponseType = { 
     "_id": string,
     "name": string,
     "price": number,
@@ -60,7 +59,7 @@ export const NewRelease:React.FC = () => {
                 setType.map((type,index)=>{
                     return<Blank key={index} type="pc-release"/>
                 })}
-                {isMobile===false&&data.length==0&&<Blank type="pc-release"/>}
+                {/* {isMobile===false&&data.length==0&&<Blank type="pc-release"/>} */}
             </div>
         </section>
     </div>
